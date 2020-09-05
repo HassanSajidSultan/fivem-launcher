@@ -1,0 +1,24 @@
+[
+	{
+		"file": "something.txt",
+		"version": {
+            "major": 0,
+            "minor": 0,
+            "patch": 1,
+            "channel": "alpha",
+            "version": 3
+        },
+		"date": 1592716353
+    },
+    {
+        "file": "somethingelse.txt",
+		"version": {
+            "major": 0,
+            "minor": 0,
+            "patch": 1,
+            "channel": "alpha",
+            "version": 1
+        },
+        "date": 1592716353
+    }
+]

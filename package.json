@@ -1,0 +1,114 @@
+{
+	"name": "reactrp-launcher",
+	"description": "Game Launcher For React Roleplay",
+	"version": "0.0.1-alpha.4",
+	"private": true,
+	"dependencies": {
+		"@fortawesome/fontawesome-pro": "^5.13.0",
+		"@fortawesome/fontawesome-svg-core": "^1.2.28",
+		"@fortawesome/free-brands-svg-icons": "^5.13.0",
+		"@fortawesome/pro-duotone-svg-icons": "^5.13.0",
+		"@fortawesome/react-fontawesome": "^0.1.11",
+		"@material-ui/core": "^4.10.2",
+		"@material-ui/lab": "^4.0.0-alpha.56",
+		"axios": "^0.19.2",
+		"chalk": "^4.1.0",
+		"connected-react-router": "^6.8.0",
+		"dompurify": "^2.0.11",
+		"electron-is-dev": "^1.2.0",
+		"electron-log": "^4.2.2",
+		"electron-settings": "^4.0.0",
+		"history": "^5.0.0",
+		"html-react-parser": "^0.13.0",
+		"keytar": "^6.0.1",
+		"moment": "^2.26.0",
+		"react": "^16.13.1",
+		"react-animated-dots": "^1.1.0",
+		"react-dom": "^16.13.1",
+		"react-moment": "^0.9.7",
+		"react-particles-js": "^3.2.1",
+		"react-redux": "^7.2.0",
+		"react-router": "^5.2.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "3.4.1",
+		"react-toastify": "^6.0.5",
+		"react-truncate": "^2.4.0",
+		"redux": "^4.0.5",
+		"redux-thunk": "^2.3.0",
+		"unzipper": "^0.10.11"
+	},
+	"main": "electron/index.js",
+	"homepage": ".",
+	"scripts": {
+		"start": "SET PORT=3001 && react-scripts -r dotenv/config start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"dev": "concurrently -r -kill-others \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3001 && nodemon -r dotenv/config --exec electron .\"",
+		"postinstall": "electron-builder install-app-deps",
+		"preelectron-pack": "yarn build",
+		"electron-pack": "electron-builder -w"
+	},
+	"author": {
+		"name": "Alzar (ReactRP)",
+		"email": "alzar@reactrp.com",
+		"url": "https://reactrp.com/"
+	},
+	"build": {
+		"extends": null,
+		"appId": "com.reactrp.launcher",
+		"productName": "React RP Launcher",
+		"copyright": "Copyright © 2020 React RP",
+		"nsis": {
+			"installerIcon": "public/logo.ico",
+			"uninstallerIcon": "public/logo.ico",
+			"installerHeaderIcon": "public/logo.ico",
+			"shortcutName": "React RP"
+		},
+		"win": {
+			"target": "msi",
+			"icon": "public/logo.ico"
+		},
+		"mac": {
+			"category": "public.app-category.utilities"
+		},
+		"files": [
+			"./electron/**/*",
+			"./build/**/*",
+			"./node_modules/**/*",
+			"./public/logo.ico"
+		],
+		"directories": {
+			"buildResources": "assets"
+		}
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"concurrently": "^5.2.0",
+		"cross-env": "^7.0.2",
+		"dotenv": "^8.2.0",
+		"electron": "^9.0.4",
+		"electron-builder": "^22.7.0",
+		"esm": "^3.2.25",
+		"nodemon": "^2.0.4",
+		"prettier": "^2.0.5",
+		"wait-on": "^5.0.1"
+	},
+	"eslintConfig": {
+		"extends": "react-app",
+		"rules": {
+			"jsx-a11y/anchor-is-valid": "off"
+		}
+	}
+}
